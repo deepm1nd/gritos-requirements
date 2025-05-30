@@ -10,12 +10,16 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",
+    "axios": "^1.9.0",
     "d3": "^7.9.0",
     "easymde": "^2.20.0",
+    "jwt-decode": "^4.0.0",
+    "markdown-it": "^14.1.0",
     "postcss": "^8.5.4",
     "preact": "^10.26.5",
     "react-simplemde-editor": "^5.2.0",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.8",
+    "wouter": "^3.7.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.1",
