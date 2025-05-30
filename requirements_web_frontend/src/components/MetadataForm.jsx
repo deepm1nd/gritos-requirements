@@ -1,10 +1,10 @@
 // requirements_web_frontend/src/components/MetadataForm.jsx
 import { h } from 'preact';
-import { 
-    REQUIREMENT_TYPES, 
-    REQUIREMENT_PRIORITIES, 
-    REQUIREMENT_STATUSES, 
-    VERIFICATION_METHODS 
+import {
+    REQUIREMENT_TYPES,
+    REQUIREMENT_PRIORITIES,
+    REQUIREMENT_STATUSES,
+    VERIFICATION_METHODS
 } from '../utils/validation'; // Import constants for dropdowns
 
 const MetadataForm = ({ data, onChange, errors, isEditMode = false }) => {
@@ -70,7 +70,7 @@ const MetadataForm = ({ data, onChange, errors, isEditMode = false }) => {
                 {renderInput('priority', 'Priority', 'select', { required: true, selectOptions: REQUIREMENT_PRIORITIES })}
                 {renderInput('status', 'Status', 'select', { required: true, selectOptions: REQUIREMENT_STATUSES })}
             </div>
-            
+
             {renderInput('tags', 'Tags', 'text', { placeholder: "Comma-separated tags, e.g., backend, api" })}
 
             <h3 className="text-lg font-medium text-gray-700 pt-4 border-t mt-6">SysML & Contextual Attributes</h3>
@@ -82,9 +82,9 @@ const MetadataForm = ({ data, onChange, errors, isEditMode = false }) => {
                 {renderInput('verification_method', 'Verification Method', 'select', { selectOptions: VERIFICATION_METHODS })}
                 {renderInput('allocated_to', 'Allocated To (SysML Block IDs)', 'text', { placeholder: "Comma-separated Block IDs, e.g., BLK-SYS-SUBSYS1, BLK-SYS-SUBSYS2" })}
             </div>
-            
-            {renderInput('links', 'Links (JSON Array)', 'textarea', { 
-                rows: 4, 
+
+            {renderInput('links', 'Links (JSON Array)', 'textarea', {
+                rows: 4,
                 placeholder: '[{"type": "related", "target": "REQ-002"}, {"type": "implements", "target": "EPIC-001"}]',
                 helpText: "Enter as a JSON array of objects, each with 'type' and 'target' keys."
             })}

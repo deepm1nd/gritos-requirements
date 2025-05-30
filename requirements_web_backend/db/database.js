@@ -133,7 +133,7 @@ const getRelationshipsGraphData = () => {
                      if (!nodesMap.has(link.source)) {
                         nodesMap.set(link.source, {
                             id: link.source,
-                            name: link.source, 
+                            name: link.source,
                             type: 'Requirement', // Assuming source is always a requirement
                             status: 'N/A'
                         });

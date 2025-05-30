@@ -37,7 +37,7 @@ export const validateRequirement = (formData) => {
     } else if (!REQUIREMENT_STATUSES.includes(formData.status)) {
         errors.status = 'Invalid status selected.';
     }
-    
+
     if (formData.verification_method && !VERIFICATION_METHODS.includes(formData.verification_method)) {
         errors.verification_method = 'Invalid verification method selected.';
     }
@@ -85,7 +85,7 @@ export const validateRequirement = (formData) => {
     if (formData.allocated_to && typeof formData.allocated_to !== 'string') {
         // errors.allocated_to = 'Allocated To should be a comma-separated string of Block IDs.';
     }
-    
+
     // Other text fields like source, stakeholder
     if (formData.source && typeof formData.source !== 'string') {
         errors.source = 'Source should be a string.';

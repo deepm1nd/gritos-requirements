@@ -94,9 +94,9 @@ const DashboardPage = () => {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {requirements.map(req => (
-                        <RequirementCard 
-                            key={req.id} 
-                            requirement={req} 
+                        <RequirementCard
+                            key={req.id}
+                            requirement={req}
                             onClick={() => handleRequirementClick(req.id)}
                         />
                     ))}

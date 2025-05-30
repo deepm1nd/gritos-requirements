@@ -45,20 +45,20 @@ const RequirementEditorPage = () => {
                     populatedData.tags = Array.isArray(data.tags) ? data.tags.join(', ') : (data.tags || '');
                     populatedData.allocated_to = Array.isArray(data.allocated_to) ? data.allocated_to.join(', ') : (data.allocated_to || '');
                     populatedData.links = Array.isArray(data.links) ? JSON.stringify(data.links, null, 2) : (typeof data.links === 'string' ? data.links : '[]');
-                    
+
                     setFormData(populatedData);
                     setErrors({});
                 })
                 .catch(err => {
                     console.error(`Error fetching requirement ${requirementIdToEdit}:`, err);
-                    setModalState({ 
-                        isOpen: true, 
-                        title: 'Error Loading Requirement', 
-                        message: `Failed to load requirement ${requirementIdToEdit}: ${err.message}`, 
-                        type: 'error' 
+                    setModalState({
+                        isOpen: true,
+                        title: 'Error Loading Requirement',
+                        message: `Failed to load requirement ${requirementIdToEdit}: ${err.message}`,
+                        type: 'error'
                     });
                     // Optional: navigate away if critical load fails, or allow retry
-                    // navigate('/'); 
+                    // navigate('/');
                 })
                 .finally(() => setIsLoading(false));
         } else {
@@ -87,11 +87,11 @@ const RequirementEditorPage = () => {
         const validationErrors = validateRequirement(formData);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
-            setModalState({ 
-                isOpen: true, 
-                title: 'Validation Error', 
-                message: 'Please correct the errors highlighted in the form before submitting.', 
-                type: 'error' 
+            setModalState({
+                isOpen: true,
+                title: 'Validation Error',
+                message: 'Please correct the errors highlighted in the form before submitting.',
+                type: 'error'
             });
             return;
         }
@@ -113,11 +113,11 @@ const RequirementEditorPage = () => {
         } catch (err) {
             console.error('Error submitting requirement:', err);
             const apiErrorMessage = err.response?.data?.message || err.message || 'An unknown error occurred.';
-            setModalState({ 
-                isOpen: true, 
-                title: 'Submission Failed', 
-                message: `Error: ${apiErrorMessage}`, 
-                type: 'error' 
+            setModalState({
+                isOpen: true,
+                title: 'Submission Failed',
+                message: `Error: ${apiErrorMessage}`,
+                type: 'error'
             });
             if (err.response?.data?.errors) {
                  setErrors(prev => ({ ...prev, ...err.response.data.errors }));
@@ -126,7 +126,7 @@ const RequirementEditorPage = () => {
             setIsLoading(false);
         }
     };
-    
+
     const closeModalAndRedirect = () => {
         setModalState({ isOpen: false, title: '', message: '', type: 'info' });
         if (modalState.type === 'success') {
@@ -134,18 +134,18 @@ const RequirementEditorPage = () => {
         }
     };
 
-    if (isLoading && isEditMode && !formData.id && !modalState.isOpen) { 
+    if (isLoading && isEditMode && !formData.id && !modalState.isOpen) {
         return <div className="p-6 text-center text-lg">Loading requirement details...</div>;
     }
 
     return (
         <div className="container mx-auto p-4 md:p-6">
-            <Modal 
-                isOpen={modalState.isOpen} 
-                title={modalState.title} 
-                message={modalState.message} 
-                type={modalState.type} 
-                onClose={closeModalAndRedirect} 
+            <Modal
+                isOpen={modalState.isOpen}
+                title={modalState.title}
+                message={modalState.message}
+                type={modalState.type}
+                onClose={closeModalAndRedirect}
             />
             <form onSubmit={handleSubmit} className="space-y-8">
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 border-b pb-3">
@@ -153,7 +153,7 @@ const RequirementEditorPage = () => {
                 </h1>
 
                 <MetadataForm data={formData} onChange={handleFormChange} errors={errors} isEditMode={isEditMode} />
-                
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <MarkdownEditor value={formData.description_md} onChange={handleDescriptionChange} />
                     <PreviewPane markdownContent={formData.description_md} />

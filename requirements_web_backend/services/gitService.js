@@ -54,10 +54,10 @@ const commitChanges = async (branchName, filePathInRepo, commitMessage, fileCont
 
         // Ensure directory exists
         await fs.mkdir(dirPath, { recursive: true });
-        
+
         await fs.writeFile(fullFilePath, fileContent);
         await git.add(fullFilePath);
-        
+
         const status = await git.status();
         const isModified = status.files.some(file => file.path === filePathInRepo && (file.working_dir !== ' ' || file.index !== ' '));
 

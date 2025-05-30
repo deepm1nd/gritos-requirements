@@ -73,7 +73,7 @@ const AuthCallbackPage = () => {
             </div>
         );
     }
-    
+
     // If login was successful, AuthContext's useEffect or login function should handle navigation.
     // A Redirect component can be a fallback if navigation doesn't occur as expected.
     // However, useAuth().login() calls navigate('/'), so this page should effectively disappear.

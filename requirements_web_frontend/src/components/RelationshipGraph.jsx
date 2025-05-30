@@ -123,7 +123,7 @@ const RelationshipGraph = ({ graphData }) => {
         .on('mouseout', () => {
             tooltip.transition().duration(500).style('opacity', 0);
         });
-        
+
         // --- Tooltip Events for Links ---
         link.on('mouseover', (event, d) => {
             tooltip.transition().duration(200).style('opacity', .9);
@@ -167,7 +167,7 @@ const RelationshipGraph = ({ graphData }) => {
                 g.attr("transform", event.transform);
             });
         svg.call(zoom);
-        
+
         // Initial zoom to fit (optional, can be tricky to get right)
         // Example: svg.call(zoom.transform, d3.zoomIdentity.translate(width/2, height/2).scale(0.5).translate(-width/2, -height/2));
 
@@ -212,8 +212,8 @@ const RelationshipGraph = ({ graphData }) => {
     return (
         <div style={{ width: '100%', height: '100%', position: 'relative' }}>
             <svg ref={svgRef} style={{ display: 'block' }}></svg>
-            <div 
-                ref={tooltipRef} 
+            <div
+                ref={tooltipRef}
                 className="tooltip bg-gray-700 text-white p-2 rounded-md shadow-lg text-xs"
                 style={{ position: 'absolute', opacity: 0, pointerEvents: 'none' }}
             ></div>
