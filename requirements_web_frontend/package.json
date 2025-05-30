@@ -1,0 +1,24 @@
+{
+  "name": "requirements_web_frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "d3": "^7.9.0",
+    "easymde": "^2.20.0",
+    "postcss": "^8.5.4",
+    "preact": "^10.26.5",
+    "react-simplemde-editor": "^5.2.0",
+    "tailwindcss": "^4.1.8"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.1",
+    "vite": "^6.3.5"
+  }
+}
