@@ -71,7 +71,7 @@ router.post('/', authenticateToken, async (req, res) => {
     // Or use a fixed subfolder like 'new_requirements' if type mapping is too complex here.
     // The `Requirements Implementation Guide` shows `requirements/features/` and `requirements/non-functional/`
     // The `id` itself (e.g., PRODX-FNC-...) could inform the path.
-    
+
     // Let's use a simple structure for now: `requirements/[type]/[id].md`
     // And ensure type is a safe directory name.
     const safeTypeFolder = requirementData.type.toLowerCase().replace(/[^a-z0-9-_]/g, '') || 'general';
@@ -94,7 +94,7 @@ router.post('/', authenticateToken, async (req, res) => {
         // A safer approach for a busy system might involve a dedicated workspace per request or a queue.
 
         const markdownContent = constructMarkdown(requirementData);
-        
+
         // 1. Create branch, commit, push
         // ensureBranchExists is called within commitChanges
         await commitChanges(branchName, filePathInRepo, commitMessage, markdownContent, requirementId);
@@ -102,7 +102,7 @@ router.post('/', authenticateToken, async (req, res) => {
 
         // 2. Create Pull Request
         const pullRequest = await createPullRequest(branchName, prTitle, prBody);
-        
+
         // 3. Switch back to main (optional, depending on server strategy)
         // await switchToMainAndPull(); // Or handle this out of band
 
@@ -130,7 +130,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
     if (!requirementName || !requirementData.type || !requirementData.priority || !requirementData.status || !requirementData.description_md) {
         return res.status(400).json({ message: 'Missing required fields for updating requirement (name, type, priority, status, description_md).' });
     }
-    
+
     // Determine file path. This is tricky if the ID or type (which might define folder) can change.
     // For this example, assume ID does not change and type folder logic is same as POST.
     // If ID *can* change, the old file needs to be found and potentially renamed/moved (a git move).
@@ -156,7 +156,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
 
     try {
         const markdownContent = constructMarkdown(requirementData);
-        
+
         await commitChanges(branchName, filePathInRepo, commitMessage, markdownContent, existingRequirementId);
         await pushChanges(branchName);
         const pullRequest = await createPullRequest(branchName, prTitle, prBody);

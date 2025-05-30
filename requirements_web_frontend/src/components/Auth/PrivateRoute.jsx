@@ -15,7 +15,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         // with what's in localStorage, or if AuthContext provides an isLoading flag.
         // For now, assume AuthContext's own useEffect is quick.
         // A minimal delay or a check if token processing is done.
-        
+
         // If token is null (logout or initial) or if token is set (login or initial load from storage),
         // AuthContext's useEffect would have run or is running.
         // We give a very brief moment for that to complete.
@@ -35,7 +35,7 @@ const PrivateRoute = ({ children, ...rest }) => {
             </div>
         );
     }
-    
+
     if (!isAuthenticated) {
         return <Redirect to="/login" />;
     }

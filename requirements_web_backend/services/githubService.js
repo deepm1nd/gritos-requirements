@@ -33,7 +33,7 @@ const createPullRequest = async (branchName, title, body, baseBranch = 'main') =
     if (!GITHUB_OWNER || !GITHUB_REPO) {
         throw new Error("GITHUB_OWNER and GITHUB_REPO environment variables must be set.");
     }
-    
+
     const octokit = await getOctokitInstance(); // Get initialized instance
 
     try {
@@ -41,7 +41,7 @@ const createPullRequest = async (branchName, title, body, baseBranch = 'main') =
             owner: GITHUB_OWNER,
             repo: GITHUB_REPO,
             title: title,
-            head: branchName, 
+            head: branchName,
             base: baseBranch,
             body: body,
             maintainer_can_modify: true, // Optional: Allow maintainers to modify the PR

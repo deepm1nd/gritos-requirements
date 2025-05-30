@@ -41,7 +41,7 @@ function App() {
                     <Switch>
                         <Route path="/login" component={LoginPage} />
                         <Route path="/auth/github/callback" component={AuthCallbackPage} />
-                        
+
                         {/* Protected Routes */}
                         <PrivateRoute path="/">
                             <DashboardPage />
@@ -50,7 +50,7 @@ function App() {
                             <RequirementEditorPage />
                         </PrivateRoute>
                         <PrivateRoute path="/requirements/edit/:id">
-                            <RequirementEditorPage /> 
+                            <RequirementEditorPage />
                         </PrivateRoute>
                         <PrivateRoute path="/relationships/graph">
                             <RelationshipGraphPage /> {/* Now uses the imported graph page */}

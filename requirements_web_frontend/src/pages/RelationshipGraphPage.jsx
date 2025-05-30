@@ -53,12 +53,12 @@ const RelationshipGraphPage = () => {
             )}
 
             {!isLoading && !error && graphData && (
-                <div className="flex-grow border border-gray-300 rounded-lg shadow-lg overflow-hidden" style={{ minHeight: 'calc(100vh - 200px)' }}> 
+                <div className="flex-grow border border-gray-300 rounded-lg shadow-lg overflow-hidden" style={{ minHeight: 'calc(100vh - 200px)' }}>
                     {/* Ensure container has a specific height for SVG to render into */}
                     <RelationshipGraph graphData={graphData} />
                 </div>
             )}
-            
+
             {!isLoading && !error && (!graphData || graphData.nodes.length === 0) && (
                  <div className="flex-grow flex flex-col justify-center items-center text-center py-10">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">

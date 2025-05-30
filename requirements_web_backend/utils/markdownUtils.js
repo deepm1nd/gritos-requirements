@@ -27,7 +27,7 @@ const constructMarkdown = (data) => {
         allocated_to: metadata.allocated_to, // Optional (ensure it's an array if present)
         // Add any other custom attributes passed in metadata that should be in YAML
     };
-    
+
     // Filter out undefined optional fields from YAML to keep it clean
     Object.keys(metaToDump).forEach(key => {
         if (metaToDump[key] === undefined) {

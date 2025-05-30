@@ -5,13 +5,13 @@ const LoginButton = () => {
     const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
     // The redirect URI is where GitHub will send the user back to on your frontend
     const REDIRECT_URI = import.meta.env.VITE_GITHUB_REDIRECT_URI || 'http://localhost:5173/auth/github/callback';
-    
+
     // Ensure VITE_GITHUB_CLIENT_ID is available
     if (!GITHUB_CLIENT_ID) {
         console.error("VITE_GITHUB_CLIENT_ID is not defined. Please check your .env file.");
         return <p style={{color: 'red'}}>GitHub Client ID not configured. Login unavailable.</p>;
     }
-    
+
     const scope = "read:user user:email"; // Request user's public profile and primary email
 
     const handleLogin = () => {
@@ -22,7 +22,7 @@ const LoginButton = () => {
     };
 
     return (
-        <button 
+        <button
             onClick={handleLogin}
             className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
         >

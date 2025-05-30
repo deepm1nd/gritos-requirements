@@ -18,7 +18,7 @@ const MarkdownEditor = ({ value, onChange, label = "Description (Markdown)" }) =
             autosave: {
                 enabled: false,
             },
-            status: false, 
+            status: false,
         };
     }, []);
 

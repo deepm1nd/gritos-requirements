@@ -16,7 +16,7 @@ const RequirementCard = ({ requirement, onClick }) => {
             // Example: navigate(`/requirements/${requirement.id}`); // If a detail view page existed
         }
     };
-    
+
     // Basic styling, can be expanded
     const getStatusColor = (status) => {
         switch (status?.toLowerCase()) {
