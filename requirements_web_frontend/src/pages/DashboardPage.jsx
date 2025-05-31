@@ -1,7 +1,7 @@
 // requirements_web_frontend/src/pages/DashboardPage.jsx
 import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
-import { useLocation } from 'wouter-preact';
+import { useLocation } from 'wouter'; // Changed to wouter for v2
 import { fetchRequirements } from '../api';
 import RequirementCard from '../components/RequirementCard';
 import { useAuth } from '../context/AuthContext'; // To check auth status if needed, or for user info

@@ -1,7 +1,7 @@
 // requirements_web_frontend/src/context/AuthContext.jsx
 import { createContext, useContext, useState, useEffect } from 'preact/compat';
-import jwtDecode from 'jwt-decode'; // Corrected import name
-import { useLocation } from 'wouter-preact'; // For navigation
+import { jwtDecode } from 'jwt-decode'; // Use named import for jwt-decode v4+
+import { useLocation } from 'wouter'; // For navigation with wouter v2
 
 const AuthContext = createContext(null);
 

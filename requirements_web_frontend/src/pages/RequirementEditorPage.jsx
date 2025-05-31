@@ -1,7 +1,7 @@
 // requirements_web_frontend/src/pages/RequirementEditorPage.jsx
 import { h } from 'preact';
 import { useState, useEffect, useCallback } from 'preact/hooks';
-import { useRoute, useLocation } from 'wouter-preact';
+import { useRoute, useLocation } from 'wouter'; // Changed to wouter for v2
 
 import { fetchRequirementById, createRequirement, updateRequirement } from '../api';
 import { validateRequirement } from '../utils/validation';

@@ -1,6 +1,6 @@
 // requirements_web_frontend/src/app.jsx
 import { h } from 'preact';
-import { Router, Route, Switch } from "wouter-preact";
+import { Router, Route, Switch } from "wouter"; // Standard import for wouter v2
 import { AuthProvider, useAuth } from './context/AuthContext';
 
 import PrivateRoute from './components/Auth/PrivateRoute';
