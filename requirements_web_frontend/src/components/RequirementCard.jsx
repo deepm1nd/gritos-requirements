@@ -1,6 +1,6 @@
 // requirements_web_frontend/src/components/RequirementCard.jsx
 import { h } from 'preact';
-import { useLocation } from 'wouter-preact';
+import { useLocation } from 'wouter'; // Changed to wouter for v2
 
 const RequirementCard = ({ requirement, onClick }) => {
     const [, navigate] = useLocation();

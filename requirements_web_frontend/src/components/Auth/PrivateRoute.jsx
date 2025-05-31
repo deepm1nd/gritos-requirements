@@ -1,6 +1,6 @@
 // requirements_web_frontend/src/components/Auth/PrivateRoute.jsx
 import { h } from 'preact';
-import { Redirect } from 'wouter-preact';
+import { Redirect } from 'wouter'; // Changed to wouter for v2
 import { useAuth } from '../../context/AuthContext';
 import { useEffect, useState } from 'preact/hooks'; // Corrected import
 

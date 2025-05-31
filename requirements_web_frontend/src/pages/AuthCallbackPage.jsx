@@ -1,7 +1,7 @@
 // requirements_web_frontend/src/pages/AuthCallbackPage.jsx
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { useLocation, Redirect } from 'wouter-preact';
+import { useLocation, Redirect } from 'wouter'; // Changed to wouter for v2
 import { githubAuthCallback } from '../api'; // API function to call backend
 import { useAuth } from '../context/AuthContext';
 
